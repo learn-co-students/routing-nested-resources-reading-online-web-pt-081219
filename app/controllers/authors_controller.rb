@@ -1,7 +1,12 @@
 class AuthorsController < ApplicationController
-
+  before_action :identify, only: [:show]
+  
   def show
-    @author = Author.find(params[:id])
   end
 
+  private
+
+  def identify
+    @author = Author.find(params[:id])
+  end
 end
